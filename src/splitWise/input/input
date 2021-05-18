@@ -1,0 +1,10 @@
+4
+Sanjay sanjay@kct.com 9500458800
+Praba praba@kct.com 9900999900
+Ajith ajith@kct.com 9090909090
+Sabari sabari@kct.com 9099009990
+u1 1000 4 u1 u2 u3 u4 EQUAL
+u1 500 2 u1 u3 EQUAL
+u3 1300 3 u1 u3 u4 EQUAL
+u4 2000 3 u1 u2 u4 EQUAL
+u1 1000 2 u1 u2 EQUAL
