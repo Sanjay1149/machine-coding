@@ -59,7 +59,7 @@ public class ExpenseCalculator {
 
     }
 
-    public boolean exactExpenseHandler(String input) {
+    public void exactExpenseHandler(String input) {
         String[] inputQuery = input.split(" ");
         User paidUser = splitWiseRoom.getUserWithId(inputQuery[0]);
         double totalPaidAmount = Double.parseDouble(inputQuery[1]);
@@ -84,12 +84,10 @@ public class ExpenseCalculator {
 
         } else {
             System.out.println("Please Input a valid entry");
-            return false;
         }
-        return true;
     }
 
-    public boolean percentageExpenseHandler(String input) {
+    public void percentageExpenseHandler(String input) {
         String[] inputQuery = input.split(" ");
         User paidUser = splitWiseRoom.getUserWithId(inputQuery[0]);
         double paidAmount = Double.parseDouble(inputQuery[1]);
@@ -114,8 +112,6 @@ public class ExpenseCalculator {
 
         } else {
             System.out.println("Please Input a valid entry");
-            return false;
         }
-        return true;
     }
 }

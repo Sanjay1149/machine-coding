@@ -29,19 +29,25 @@ public class SplitWise {
     private static void startStimulation(Scanner in) {
         ExpenseCalculator expenseCalculator = new ExpenseCalculator(splitWiseRoom);
         while (true) {
-            boolean handlerStatus = false;
             String paymentInput = in.nextLine();
             if (paymentInput.contains("EQUAL")) {
                 expenseCalculator.equalExpenseHandler(paymentInput);
-                handlerStatus = true;
             } else if (paymentInput.contains("EXACT")) {
-                handlerStatus = expenseCalculator.exactExpenseHandler(paymentInput);
+                expenseCalculator.exactExpenseHandler(paymentInput);
             } else if (paymentInput.contains("PERCENT")) {
-                handlerStatus = expenseCalculator.percentageExpenseHandler(paymentInput);
-            }
-            if (handlerStatus) {
-                System.out.println("Next Iteration -> ");
-                splitWiseRoom.printStatus(users);
+                expenseCalculator.percentageExpenseHandler(paymentInput);
+            } else if (paymentInput.contains("SHOW")) {
+                String[] inputString = paymentInput.split(" ");
+                if ( inputString.length == 1 ) {
+                    System.out.println("Showing all user balances");
+                    splitWiseRoom.showUsersBalance(users);
+                    System.out.println();
+                } else {
+                    String userBalanceToShow = inputString[1];
+                    System.out.println("Showing balance of " + userBalanceToShow);
+                    splitWiseRoom.showBalanceForUser(userBalanceToShow);
+                    System.out.println();
+                }
             }
         }
     }

@@ -23,7 +23,7 @@ public class SplitWiseRoom {
         this.adminUserId = adminUserId;
     }
 
-    public void printStatus(User[] users) {
+    public void showUsersBalance(User[] users) {
         for (User userData : users) {
             ExpenseSheet expenseSheet = userData.getExpenseSheet();
             Map<String, PendingPayment> expenseChart = expenseSheet.getExpenseChart();
@@ -33,5 +33,18 @@ public class SplitWiseRoom {
                 }
             });
         }
+    }
+
+    public void showBalanceForUser(String userId) {
+        User user = usersMap.get(userId);
+        ExpenseSheet expenseSheet = user.getExpenseSheet();
+        Map<String, PendingPayment> expenseChart = expenseSheet.getExpenseChart();
+        expenseChart.forEach((otherUserId, pendingPayment) -> {
+            if (pendingPayment.status == PaymentStatus.OWE) {
+                System.out.println(userId + " owes " + otherUserId + " " + Math.abs(pendingPayment.getRemainingBalance()));
+            } else if (pendingPayment.status == PaymentStatus.NEED) {
+                System.out.println(otherUserId + " owes " + userId + " " + Math.abs(pendingPayment.getRemainingBalance()));
+            }
+        });
     }
 }
