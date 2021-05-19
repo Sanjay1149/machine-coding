@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class ExpenseSheet {
     String expenseSheetOwner;
-    int remainingBalance;
+    double remainingBalance;
     Map<String, PendingPayment> expenseChart;
 
     ExpenseSheet(String userId) {
@@ -17,15 +17,15 @@ public class ExpenseSheet {
         return expenseChart;
     }
 
-    public int getRemainingBalance() {
+    public double getRemainingBalance() {
         return remainingBalance;
     }
 
-    public void addBalanceAmount(int amount) {
+    public void addBalanceAmount(double amount) {
         this.remainingBalance += amount;
     }
 
-    public void removeBalanceAmount(int amount) {
+    public void removeBalanceAmount(double amount) {
         this.remainingBalance -= amount;
     }
 }

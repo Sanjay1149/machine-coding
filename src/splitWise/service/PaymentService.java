@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class PaymentService {
 
-    static void addMoney(User paidUser, User owedUser, int paidAmount) {
+    static void addMoney(User paidUser, User owedUser, double paidAmount) {
         ExpenseSheet expenseSheet = paidUser.getExpenseSheet();
         Map<String, PendingPayment> expenseChart = expenseSheet.getExpenseChart();
         String owedUserId = owedUser.getUserId();
@@ -24,7 +24,7 @@ public class PaymentService {
         expenseSheet.addBalanceAmount(paidAmount);
     }
 
-    static void owedMoney(User paidUser, User owedUser, int paidAmount) {
+    static void owedMoney(User paidUser, User owedUser, double paidAmount) {
         ExpenseSheet expenseSheet = owedUser.getExpenseSheet();
         Map<String, PendingPayment> expenseChart = expenseSheet.getExpenseChart();
         String paidUserId = paidUser.getUserId();

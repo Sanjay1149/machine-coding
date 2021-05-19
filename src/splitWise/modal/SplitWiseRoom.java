@@ -24,12 +24,12 @@ public class SplitWiseRoom {
     }
 
     public void printStatus(User[] users) {
-        for ( User userData : users ) {
+        for (User userData : users) {
             ExpenseSheet expenseSheet = userData.getExpenseSheet();
             Map<String, PendingPayment> expenseChart = expenseSheet.getExpenseChart();
-            expenseChart.forEach((userId,pendingPayment) -> {
-                if ( pendingPayment.status == PaymentStatus.NEED ) {
-                    System.out.println( userId + " owes " + userData.getUserId() + " " + pendingPayment.remainingBalance);
+            expenseChart.forEach((userId, pendingPayment) -> {
+                if (pendingPayment.status == PaymentStatus.OWE) {
+                    System.out.println(userData.getUserId() + " owes " + userId + " " + Math.abs(pendingPayment.getRemainingBalance()));
                 }
             });
         }
