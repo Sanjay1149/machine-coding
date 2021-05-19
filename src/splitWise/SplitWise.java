@@ -22,22 +22,27 @@ public class SplitWise {
         }
         splitWiseRoom.setAdminUser(users[0].getUserId());
 
+        System.out.println();
         startStimulation(in);
     }
 
     private static void startStimulation(Scanner in) {
         ExpenseCalculator expenseCalculator = new ExpenseCalculator(splitWiseRoom);
         while (true) {
+            boolean handlerStatus = false;
             String paymentInput = in.nextLine();
             if (paymentInput.contains("EQUAL")) {
                 expenseCalculator.equalExpenseHandler(paymentInput);
+                handlerStatus = true;
             } else if (paymentInput.contains("EXACT")) {
-                expenseCalculator.exactExpenseHandler(paymentInput);
-            } else if (paymentInput.contains("PERCENTAGE")) {
-                expenseCalculator.percentageExpenseHandler(paymentInput);
+                handlerStatus = expenseCalculator.exactExpenseHandler(paymentInput);
+            } else if (paymentInput.contains("PERCENT")) {
+                handlerStatus = expenseCalculator.percentageExpenseHandler(paymentInput);
             }
-            System.out.println("Iteration -> ");
-            splitWiseRoom.printStatus(users);
+            if (handlerStatus) {
+                System.out.println("Next Iteration -> ");
+                splitWiseRoom.printStatus(users);
+            }
         }
     }
 }
