@@ -15,7 +15,7 @@ public class ExpenseCalculator {
         this.splitWiseRoom = splitWiseRoom;
     }
 
-    boolean isValidExactCondition(int totalPaidAmount, int numberOfUsersPaidFor, String[] inputQuery, int querySize) {
+    boolean isValidExactCondition(double totalPaidAmount, int numberOfUsersPaidFor, String[] inputQuery, int querySize) {
         int inputAmount = 0;
         for (int i = querySize - numberOfUsersPaidFor; i < querySize; i++) {
             inputAmount += Integer.parseInt(inputQuery[i]);
@@ -31,20 +31,20 @@ public class ExpenseCalculator {
         return percentageProvided == 100;
     }
 
-    double getPercentageAmount(int totalAmount, int percentage) {
+    double getPercentageAmount(double totalAmount, int percentage) {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
-        double userShareAmount = (double) (totalAmount * percentage) / 100;
+        double userShareAmount = (totalAmount * percentage) / 100;
         return Double.parseDouble(decimalFormat.format(userShareAmount));
     }
 
     public void equalExpenseHandler(String input) {
         String[] inputQuery = input.split(" ");
         User paidUser = splitWiseRoom.getUserWithId(inputQuery[0]);
-        int paidAmount = Integer.parseInt(inputQuery[1]);
+        double paidAmount = Double.parseDouble(inputQuery[1]);
         int numberOfUsersPaidFor = Integer.parseInt(inputQuery[2]);
 
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
-        double amountPerHead = (double) paidAmount / numberOfUsersPaidFor;
+        double amountPerHead = paidAmount / numberOfUsersPaidFor;
 
         for (int i = 0; i < numberOfUsersPaidFor; i++) {
             String owedUserId = inputQuery[(3 + i)];
@@ -62,7 +62,7 @@ public class ExpenseCalculator {
     public boolean exactExpenseHandler(String input) {
         String[] inputQuery = input.split(" ");
         User paidUser = splitWiseRoom.getUserWithId(inputQuery[0]);
-        int totalPaidAmount = Integer.parseInt(inputQuery[1]);
+        double totalPaidAmount = Double.parseDouble(inputQuery[1]);
         int numberOfUsersPaidFor = Integer.parseInt(inputQuery[2]);
         int querySize = inputQuery.length;
 
@@ -92,7 +92,7 @@ public class ExpenseCalculator {
     public boolean percentageExpenseHandler(String input) {
         String[] inputQuery = input.split(" ");
         User paidUser = splitWiseRoom.getUserWithId(inputQuery[0]);
-        int paidAmount = Integer.parseInt(inputQuery[1]);
+        double paidAmount = Double.parseDouble(inputQuery[1]);
         int numberOfUsersPaidFor = Integer.parseInt(inputQuery[2]);
         int querySize = inputQuery.length;
 

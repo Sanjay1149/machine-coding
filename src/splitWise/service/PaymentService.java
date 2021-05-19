@@ -21,7 +21,7 @@ public class PaymentService {
             expenseChart.put(owedUserId, pendingPayment);
         }
 
-        expenseSheet.addBalanceAmount(paidAmount);
+//        expenseSheet.addBalanceAmount(paidAmount);
     }
 
     static void owedMoney(User paidUser, User owedUser, double paidAmount) {
@@ -36,7 +36,7 @@ public class PaymentService {
             expenseChart.put(paidUserId, pendingPayment);
         }
 
-        expenseSheet.removeBalanceAmount(paidAmount);
+//        expenseSheet.removeBalanceAmount(paidAmount);
     }
 
 }
