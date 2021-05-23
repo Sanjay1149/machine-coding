@@ -41,13 +41,12 @@ public class SplitWise {
                 if ( inputString.length == 1 ) {
                     System.out.println("Showing all user balances");
                     splitWiseRoom.showUsersBalance(users);
-                    System.out.println();
                 } else {
                     String userBalanceToShow = inputString[1];
                     System.out.println("Showing balance of " + userBalanceToShow);
                     splitWiseRoom.showBalanceForUser(userBalanceToShow);
-                    System.out.println();
                 }
+                System.out.println();
             }
         }
     }
