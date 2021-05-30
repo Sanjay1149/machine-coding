@@ -1,6 +1,7 @@
 package parkingLot.service;
 
 import parkingLot.modal.*;
+import parkingLot.vehicles.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,8 +9,17 @@ import java.util.Map;
 public class ParkingService {
     Map<String, Ticket> ticketMap = new HashMap<>();
 
+    IVehicle getVehicleBasedOnType(String vehicleType, String registrationNum, String color) {
+        if ( vehicleType.equals("CAR")) {
+            return  new Car(SlotType.CAR, registrationNum, color);
+        } else if ( vehicleType.equals("BIKE")) {
+            return  new Bike(SlotType.BIKE, registrationNum, color);
+        }
+        return  new Truck(SlotType.BIKE, registrationNum, color);
+    }
+
     public void parkVehicle(ParkingArena parkingArena, String vehicleType, String registrationNum, String color) {
-        Vehicle incomingVehicle = new Vehicle(vehicleType, registrationNum, color);
+        IVehicle incomingVehicle = getVehicleBasedOnType(vehicleType,registrationNum,color);
         boolean isVehicleParked = false;
         Ticket ticket = null;
         for (int floor = 0; floor < parkingArena.getNoOfFloors(); floor++) {
@@ -49,12 +59,12 @@ public class ParkingService {
             int slotPos = ticket.getSlotId() - 1;
             Floor floorN = parkingArena.getFloors()[floor];
             VehicleSlot slot = floorN.getSlots()[slotPos];
-            Vehicle vehicle = slot.getVehicle();
+            IVehicle vehicle = slot.getVehicle();
 
             System.out.println("Unparked vehicle with Registration Number: " + vehicle.getRegistrationNum() + " and Color: " + vehicle.getColor());
 
             slot.removeVehicle();
-            String vehicleType = vehicle.getType();
+            SlotType vehicleType = vehicle.getSlotType();
             floorN.vehicleLeftFromFloor(vehicleType);
             ticketMap.remove(ticketId);
         } else {

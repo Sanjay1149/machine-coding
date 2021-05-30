@@ -1,6 +1,6 @@
 package parkingLot.modal;
 
-public class Vehicle {
+/*public class Vehicle {
     String type;
     String registrationNum;
     String color;
@@ -25,7 +25,7 @@ public class Vehicle {
         return color;
     }
 
-}
+}*/
 /*
 
 class Bike extends Vehicle {

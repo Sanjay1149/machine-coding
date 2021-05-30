@@ -1,21 +1,18 @@
 package parkingLot.modal;
 
-import java.util.stream.Stream;
+import parkingLot.vehicles.SlotType;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Floor {
-    VehicleSlot[] slots;
-    int trunkStartSlot;
-    int bikeStartSlot;
-    int carStartSlot;
-    int noOfTruck;
-    int noOfBike;
-    int noOfCar;
-    int vacantTrunkSlot;
-    int vacantBikeSlot;
-    int vacantCarSlot;
-    int vacantSlots;
+    int floorId;
+    int noOfSlotsPerFloor;
+    Map<Integer, VehicleSlot> slotPositionMap = new HashMap<>();
+    Map<SlotType, SlotInfo> slotInfoMap = new HashMap<>();
 
     Floor(int noOfSlotsPerFloor) {
+
         trunkStartSlot = 1;
         noOfTruck = 1;
         vacantTrunkSlot = noOfTruck;
@@ -47,9 +44,13 @@ public class Floor {
         return slots;
     }
 
-    int numOfVacantSlots() {
-        return vacantSlots;
+    public int getNoOfSlotsPerFloor() {
+        return noOfSlotsPerFloor;
     }
+
+//    int numOfVacantSlots() {
+//        return vacantSlots;
+//    }
 
     public int getVacantTrunkSlot() {
         return vacantTrunkSlot;

@@ -1,7 +1,10 @@
 package parkingLot.modal;
 
+import parkingLot.vehicles.IVehicle;
+
 public class VehicleSlot {
-    Vehicle vehicle;
+    int slotId;
+    IVehicle vehicle;
     String slotType;
     boolean isOccupied;
 
@@ -10,7 +13,7 @@ public class VehicleSlot {
         this.isOccupied = false;
     }
 
-    public void addVehicle(Vehicle vehicle) {
+    public void addVehicle(IVehicle vehicle) {
         this.vehicle = vehicle;
         this.isOccupied = true;
     }
@@ -24,7 +27,7 @@ public class VehicleSlot {
         return isOccupied;
     }
 
-    public Vehicle getVehicle() {
+    public IVehicle getVehicle() {
         return vehicle;
     }
 

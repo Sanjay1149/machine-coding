@@ -6,7 +6,6 @@ import java.util.stream.Stream;
 public class ParkingArena {
     String parkingArenaId;
     int noOfFloors;
-    int noOfSlotsPerFloor;
     Floor[] floors;
 
     public String getParkingArenaId() {
@@ -17,10 +16,6 @@ public class ParkingArena {
         return noOfFloors;
     }
 
-    public int getNoOfSlotsPerFloor() {
-        return noOfSlotsPerFloor;
-    }
-
     public Floor[] getFloors() {
         return floors;
     }
@@ -28,7 +23,6 @@ public class ParkingArena {
     public ParkingArena(String parkingArenaId, int noOfFloors, int noOfSlotsPerFloor) {
         this.parkingArenaId = parkingArenaId;
         this.noOfFloors = noOfFloors;
-        this.noOfSlotsPerFloor = noOfSlotsPerFloor;
         createParkingFloors(noOfFloors, noOfSlotsPerFloor);
     }
 
