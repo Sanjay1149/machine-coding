@@ -1,0 +1,40 @@
+SHOW
+BOARD CREATE san@tech
+SHOW BOARD board1
+BOARD board1 name workat.tech
+BOARD board1 privacy PRIVATE
+SHOW BOARD board1
+
+
+BOARD CREATE workat
+BOARD board2 ADD_MEMBER sanjay sanjay@kct.com
+BOARD board2 ADD_MEMBER praba praba@kct.com
+BOARD board2 ADD_MEMBER ajith ajith@kct.com
+SHOW BOARD board2
+BOARD board2 REMOVE_MEMBER user_3
+SHOW
+
+LIST CREATE board1 DBZ
+LIST CREATE board2 MockInterviews
+SHOW LIST list1-board2
+LIST CREATE board2 MockInterviews-Scheduled
+CARD CREATE list2-board2 sanjayKT
+CARD CREATE list2-board2 chatFlow
+SHOW LIST list1-board2
+
+
+CARD card1-list2-board2 name abcde@gmail.com
+CARD card1-list2-board2 description At-7PM
+SHOW LIST list2-board2
+CARD card1-list2-board2 ASSIGN user_1
+CARD card1-list2-board2 ASSIGN user_2
+SHOW CARD card1-list2-board2
+CARD card1-list2-board2 UNASSIGN user_2
+SHOW CARD card1-list2-board2
+
+
+CARD card1-list2-board2 MOVE card1-list1-board1
+SHOW BOARD board2
+
+BOARD DELETE board1
+SHOW
