@@ -1,14 +1,9 @@
 package parkingLot.vehicles;
 
-public class Bike implements IVehicle {
-    SlotType slotType;
-    String registrationNum;
-    String color;
+public class Bike extends IVehicle {
 
     public Bike(SlotType slotType, String registrationNum, String color) {
-        this.slotType = slotType;
-        this.registrationNum = registrationNum;
-        this.color = color;
+        super(slotType,registrationNum,color);
     }
 
     @Override
@@ -17,22 +12,7 @@ public class Bike implements IVehicle {
     }
 
     @Override
-    public SlotType getVehicleType() {
+    public  SlotType getVehicleType() {
         return SlotType.BIKE;
-    }
-
-    @Override
-    public SlotType getSlotType() {
-        return slotType;
-    }
-
-    @Override
-    public String getRegistrationNum() {
-        return registrationNum;
-    }
-
-    @Override
-    public String getColor() {
-        return color;
     }
 }

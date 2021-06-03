@@ -1,14 +1,29 @@
 package parkingLot.vehicles;
 
-public interface IVehicle {
+public abstract class IVehicle {
+    SlotType slotType;
+    String registrationNum;
+    String color;
 
-    void checkVehicleInfo();
+    public IVehicle(SlotType slotType, String registrationNum, String color) {
+        this.slotType = slotType;
+        this.registrationNum = registrationNum;
+        this.color = color;
+    }
 
-    SlotType getVehicleType();
+    abstract void checkVehicleInfo();
 
-    SlotType getSlotType();
+    abstract SlotType getVehicleType();
 
-    String getRegistrationNum();
+    public SlotType getSlotType() {
+        return slotType;
+    }
 
-    String getColor();
+    public String getRegistrationNum() {
+        return registrationNum;
+    }
+
+    public String getColor() {
+        return color;
+    }
 }
