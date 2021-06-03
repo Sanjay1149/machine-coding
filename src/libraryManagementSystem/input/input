@@ -1,0 +1,34 @@
+create_library 12
+add_book 1 book1 author1,author2 publisher1 book_copy1,book_copy2,book_copy3
+add_book 2 book2 author2,author3 publisher2,publisher3 book_copy4,book_copy5,book_copy6,book_copy7,book_copy8,book_copy9,book_copy10
+add_book 3 book3 author2 publisher2 book_copy11,book_copy12,book_copy13
+search book_id 1
+search book_id 3
+remove_book_copy book_copy6
+remove_book_copy book_copy13
+add_book 3 book3 author2 publisher2 book_copy13
+search book_id 3
+
+
+print_borrowed user1
+borrow_book 1 user1 2020-12-31
+borrow_book 1 user1 2020-12-31
+borrow_book 1 user1 2020-12-31
+borrow_book 1 user1 2020-12-31
+search book_id 1
+search author_id author1
+borrow_book 4 user1 2020-12-31
+borrow_book 2 user1 2020-12-31
+borrow_book 2 user1 2020-12-31
+borrow_book 2 user1 2020-12-31
+print_borrowed user1
+return_book_copy book_copy1
+return_book_copy book_copy2
+borrow_book_copy book_copy1
+borrow_book_copy book_copy1
+borrow_book_copy book_copy2
+borrow_book_copy book_copy10
+print_borrowed user1
+search author_id author2
+search author_id author3
+exit
