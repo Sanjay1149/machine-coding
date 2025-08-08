@@ -23,10 +23,9 @@ public class DeliverySimulationService {
         for (DeliveryStep step : steps) {
             if (path.contains(step)) continue;
 
-            if (step instanceof Dropoff) {
-                Order order = ((Dropoff) step).order;
-                // We make sure the restaurant pickup is done, before adding the dropoff
-                if (!path.contains(new Pickup(order))) continue;
+            if (step.getType() == DeliveryStepType.DROPOFF) {
+                DeliveryStep pickupStep = new DeliveryStep(DeliveryStepType.PICKUP, step.getOrder());
+                if (!path.contains(pickupStep)) continue;
             }
 
             path.add(step);
@@ -45,8 +44,8 @@ public class DeliverySimulationService {
     public List<List<Location>> generateValidPaths(DeliveryAgent agent, List<Order> orders) {
         List<DeliveryStep> steps = new ArrayList<>();
         for (Order order : orders) {
-            steps.add(new Pickup(order));
-            steps.add(new Dropoff(order));
+            steps.add(new DeliveryStep(DeliveryStepType.PICKUP, order));
+            steps.add(new DeliveryStep(DeliveryStepType.DROPOFF, order));
         }
 
         List<List<DeliveryStep>> validStepPermutations = new ArrayList<>();
@@ -55,7 +54,7 @@ public class DeliverySimulationService {
         List<List<Location>> finalPaths = new ArrayList<>();
         for (List<DeliveryStep> perm : validStepPermutations) {
             List<Location> path = new ArrayList<>();
-            path.add(agent.getLocation()); // always start with Aman
+            path.add(agent.getLocation());
             for (DeliveryStep step : perm) {
                 path.add(step.getLocation());
             }
