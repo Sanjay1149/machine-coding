@@ -11,9 +11,7 @@ It models core entities such as Restaurant, Customer, and DeliveryAgent using Ja
   - `Customer` (class): representing the end-user who receives deliveries.
   - `DeliveryAgent` (class): representing the person delivering orders.
   - `DeliveryStep` (interface): Represents the delivery action to be done
-  - `Pickup` (class): representing the pickup of the order from restaurant
-  - `Dropoff` (class): representing the drop-off of the order to customer
-
+  - `DeliveryStepType` (enum): representing the pickup from restaurant or drop off to customer
 
 - **util package:**
   - `GeoUtils`: To calculate the distance traveled between two locations using haversine principle
