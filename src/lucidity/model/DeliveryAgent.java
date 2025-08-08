@@ -5,9 +5,10 @@ public class DeliveryAgent {
     private final String name;
     private Location currentLocation;
 
-    public DeliveryAgent(int id, String name) {
+    public DeliveryAgent(int id, String name, Location location) {
         this.id = id;
         this.name = name;
+        this.currentLocation = location;
     }
 
     public int getId() {

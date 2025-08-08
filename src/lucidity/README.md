@@ -23,14 +23,13 @@ It models core entities such as Restaurant, Customer, and DeliveryAgent using Ja
 ## Example Usage
 To Create the delivery agent
 ```java
-DeliveryAgent aman = new DeliveryAgent(1, "Aman");
 Location amanLoc = new Location("Aman", 12.935, 77.614);
-aman.updateLocation(amanLoc);
+DeliveryAgent aman = new DeliveryAgent(1, "Aman", amanLoc);
 ```
 To Create the customer
 ```java
-Customer c1 = new Customer(1, "C1", c1Loc);
 Location c1Loc = new Location("C1", 12.937, 77.615);
+Customer c1 = new Customer(1, "C1", c1Loc);
 ```
 
 To Create the restaurant

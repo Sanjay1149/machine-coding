@@ -16,8 +16,7 @@ public class Lucidity {
         Location r3Loc = new Location("R3", 12.938, 77.618);
         Location c3Loc = new Location("C3", 12.947, 77.620);
 
-        DeliveryAgent aman = new DeliveryAgent(1, "Aman");
-        aman.updateLocation(amanLoc);
+        DeliveryAgent aman = new DeliveryAgent(1, "Aman", amanLoc);
 
         Customer c1 = new Customer(1, "C1", c1Loc);
         Customer c2 = new Customer(2, "C2", c2Loc);
